@@ -1,0 +1,139 @@
+﻿@model IEnumerable<MobileStore.Models.Entity.orderViewProduct>
+
+@{
+    ViewBag.Title = "_ViewOrderDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="right_col" role="main">
+    <div class="ordercontent">
+
+        <div class="info-order">
+            <strong style="font-size:20px;">Chi tiết đơn hàng</strong>
+
+            @foreach (var item in Model)
+            {
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Đơn hàng:
+                        </strong>
+                        @item.order.cartID
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Ngày tạo:
+                        </strong>
+                        @item.order.createdDate
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Tên sản phẩm:
+                        </strong>
+                        @item.product.productName
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Số lượng:
+                        </strong>
+                        @item.cart.quantity
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Giá bán:
+                        </strong>
+                        @String.Format("{0:N0}", float.Parse(item.product.productSale))
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Thành tiền:
+                        </strong>
+                        @String.Format("{0:N0}", (item.cart.total))
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Tên Khách hàng:
+                        </strong>
+                        @item.order.name
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Số điện thoại:
+                        </strong>
+                        @item.order.phone
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Email:
+                        </strong>
+                        @item.order.email
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Địa chỉ nhận hàng:
+                        </strong>
+                        @item.order.address
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Thành phố:
+                        </strong>
+                        @item.order.city
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Quốc gia:
+                        </strong>
+                        @item.order.state
+                    </span>
+                </label>
+                <label>
+                    <i></i>
+                    <span>
+                        <strong>
+                            Phương thức thanh toán:
+                        </strong>
+                        @item.order.paymentMethod
+                    </span>
+                </label>
+            }
+        </div>
+
+    </div>
+</div>
+<!-- /page content -->
